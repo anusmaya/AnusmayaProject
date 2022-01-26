@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tv Registration</title>
+    <style>
+        form{
+        width:750px;
+        margin:auto;
+        padding:20px;
+        background:white;
+        font-size:18px;
+        color:Black;
+        }
+        select{
+        font-size:14px;
+        padding:5px;
+        background:#e0d3e8;
+        }
+        .container{
+        position:absolute;
+        top:400px;
+        right:990px;
+        }
+    </style>
+</head>
+<body bgcolor="#e6fff5">
+<form action="details" method="POST">
+    {% csrf_token %}
+    <br><label>ModelNo </label>
+    <input type="text" name="modelno" required pattern="^[0-9]+,?[0-9]{0,2}$"><br>
+    <br>
+    <label>Name   </label>
+    <input type="text" name="name"   maxlength="200"  required pattern="^[A-Za-z ,.'-]+$"><br><br>
+    <p id="p1"></p>
+    <label>Type </label><br>
+    <input type="radio" name="type" value="Android_Tv" required>Android Tv
+    <input type="radio" name="type" value="Smart_Tv">Smart Tv<br><br>
+    <label>Features </label><br>
+    <input type="checkbox" name="feature" value="Fast_user_interface " required>Fast User Interface
+    <input type="checkbox" name="feature" value="Music_streaming " > Music Streaming
+    <input type="checkbox" name="feature" value="Media_player " >Media Player
+    <input type="checkbox" name="feature" value="4k_UHD_streaming "> 4K UHD Streaming<br>
+   <br> <label> Color </label>
+    <select name="color">
+        <option disabled="disabled" selected="selected">--Choose Color--</option>
+        <option value="Black">Black</option>
+        <option value="Grey">Grey</option>
+        <option value="Silver">Silver</option>
+        <option value="Silver">White</option>
+    </select>
+
+    <br><label>Price </label>
+    <input type="text" name="price" required pattern="^[0-9]+,?[0-9]{0,2}$"><br>
+    <br><input type="submit" value="SUBMIT">
+
+</form>
+<div class="container">
+ <a href="display"><button>TV Details</button></a>
+</div>
+</body>
+</html>

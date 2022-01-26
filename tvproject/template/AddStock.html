@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Stock</title>
+    <style>
+        form{
+        width:500px;
+        margin:auto;
+        padding:20px;
+        background:#e6fff5;
+        font-size:18px;
+        color:Black;
+    </style>
+
+</head>
+<body>
+    <form action="sradd" method="POST">
+    {% csrf_token %}
+        <input type="text" value="{{data}}" name="modelnum" hidden>
+        <label>Model Number {{data}}</label><br>
+
+        <br><label>Rack Number </label><br>
+        <input type="text" name="rack"  required pattern="^[0-9]+,?[0-9]{0,2}$"><br>
+        <label>Stock </label><br>
+        <input type="text" name="stock" required pattern="^[0-9]+,?[0-9]{0,2}$"><br>
+        <input type="submit" value="ADD STOCK">
+    </form>
+</body>
+</html>
